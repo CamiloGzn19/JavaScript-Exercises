@@ -17,6 +17,7 @@ function imageLoaded() {
   imagesLoaded++;
   if (imagesLoaded === totalImages) {
     ready = true;
+    loader.hidden = true;
   }
 }
 
@@ -59,7 +60,6 @@ async function getPhotos() {
   try {
     const response = await fetch(apiUrl);
     photosArray = await response.json();
-    console.log(photosArray);
     displayPhotos();
   } catch (error) {
     // Catch error Here
